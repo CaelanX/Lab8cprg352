@@ -3,7 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/awarsyle/Documents/OneDrive%20-%20Southern%20Alberta%20Institute%20of%20Technology/Courses/CPRG-352%20Current/10%20Security/SecurityDemo/src/java/database/notesdb.sql</file>
+            <file>file:/C:/Users/caelan/Documents/NetBeansProjects/SecurityDemo/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/caelan/Documents/NetBeansProjects/SecurityDemo/web/WEB-INF/login.jsp</file>
+            <file>file:/C:/Users/caelan/Documents/NetBeansProjects/SecurityDemo/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/caelan/Documents/NetBeansProjects/SecurityDemo/src/java/models/Role.java</file>
+            <file>file:/C:/Users/caelan/Documents/NetBeansProjects/SecurityDemo/src/java/servlets/AdminServlet.java</file>
+            <file>file:/C:/Users/caelan/Documents/NetBeansProjects/SecurityDemo/src/java/models/User.java</file>
+            <file>file:/C:/Users/caelan/Documents/NetBeansProjects/SecurityDemo/src/java/models/Note.java</file>
+            <file>file:/C:/Users/caelan/Documents/NetBeansProjects/SecurityDemo/src/java/filters/AdminFilter.java</file>
+            <file>file:/C:/Users/caelan/Documents/NetBeansProjects/SecurityDemo/src/java/filters/AuthenticationFilter.java</file>
         </group>
     </open-files>
 </project-private>

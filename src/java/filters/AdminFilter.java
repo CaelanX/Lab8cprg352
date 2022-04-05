@@ -4,6 +4,7 @@
  */
 package filters;
 
+import dataaccess.UserDB;
 import java.io.IOException;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -14,6 +15,11 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import models.User;
+import services.AccountService;
 
 /**
  *
@@ -34,20 +40,41 @@ public class AdminFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        HttpRequest adminRequest = (HttpRequest) request;
-        HttpResponse adminResponse = (HttpResponse) response;
+        
+        HttpServletRequest httpRequest = (HttpServletRequest)request;
+        
+        
+        String email = (String) request.getAttribute("email");
+        String password = (String) request.getAttribute("password");
+        AccountService as = new AccountService();
+        User user = as.login(email,password);
+        
+        
+        
+        if(user == null){
+            HttpServletResponse httpResponse = (HttpServletResponse)response;
+            httpResponse.sendRedirect("login"); 
+            return;  
+        }
+        int userRole = user.getRole().getRoleId();
+        
+        if(userRole != 1){
+            HttpServletResponse httpResponse = (HttpServletResponse)response;
+            httpResponse.sendRedirect("login"); 
+            return;
+        }
+        
+        chain.doFilter(request, response);  
         
     }
 
     @Override
     public void destroy() {
-        Filter.super.destroy(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
     
 }
